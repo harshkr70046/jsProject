@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="heading">
+        <h1>Demo of ToDo list</h1>
+        <div class="content">
+            <input type="text" id="inputElem">
+            <button class="btn">add data</button>
+        </div>
+        <div id="harsh"></div>
+    </div>
+    <script>
+        let inputElem = document.getElementById("inputElem");
+        let onClick = document.querySelector(".btn");
+        let todoElem = document.querySelector("#harsh");
+
+        const toDodata = () => {
+            let pElem = document.createElement('p');
+            pElem.textContent = inputElem.value; // Use the value of the input
+            todoElem.append(pElem); // Append the new paragraph to todoElem
+            inputElem.value = ""; // Clear the input field
+        }
+
+        onClick.addEventListener('click', () => {
+            toDodata();
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // let inputElem = document.getElementById("inputElem");
+        // let clickButton = document.querySelector(".btn");
+        // // let addData = document.querySelector(".harsh");
+        // let addTodo = () => {
+            
+        //     let pElem = document.createElement('p');
+        //     pElem.textContent = inputElem.value;
+        //     harsh.append(pElem)
+        // }
+        // clickButton.addEventListener('click',()=>{
+        //     addTodo();
+        // })
+    </script>
+</body>
+</html>
