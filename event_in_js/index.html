@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event in Js</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="content">
+        <div>
+            <h1>Inline Event</h1>
+            <button id="btn1">Click</button>
+            <button id="btn2">Click</button>
+        </div>
+        <div>
+            <h1>DOM Event handler</h1>
+            <button id="btn3">Hover Effect</button>
+            <button id="btn4">double Click</button>
+        </div>
+        <div>
+            <h1>addEventListener</h1>
+            <button>greeting</button>
+            <button>greeting again</button>
+        </div>
+    </div>
+
+    <script>
+        let btn1 = document.querySelector("#btn1");
+        let btn2 = document.querySelector("#btn2");
+
+        document.querySelector("#btn3").addEventListener('mouseover',function(){
+            alert("Hiiiiii")
+        })
+
+        document.querySelector("#btn4").addEventListener('dblclick',function(){
+            alert("Hiiiiii")
+        })
+        btn1.addEventListener('click',()=>{
+            alert("Hi Harsh..");
+        })
+        btn2.addEventListener('click',()=>{
+            alert("Hello, is it ok..");
+        })
+    </script>
+</body>
+</html>
