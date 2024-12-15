@@ -4,8 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-    
+<body id="body">
+    <h1>Mouse Event Project in JavaScript <sub style="font-size: 1rem;">Creator:-Harsh</sub></h1>
+    <h1 id="heading">Starting Pase</h1>
+    <div id="rectange"></div>
+    <button id="btn">click</button>
+
+
+    <script>
+        let rect = document.getElementById("rectange");
+        let button = document.getElementById("btn");
+        let body = document.getElementById("body")
+        let heading = document.getElementById("heading")
+        
+        //first function
+
+        let firstTime = false;
+        const onSingleClick = ()=>{
+                heading.textContent = "ON SINGLE CLICK"
+                body.style.color = "#fff"
+                body.style.backgroundColor = "#000000"
+                rect.style.backgroundColor = "#fff"
+                
+                rect.style.borderRadius = "0";
+                rect.style.transform = `rotate(${0}deg)`;
+
+            isActiveDoubleClick = false;
+        }
+
+
+        const onDoubleClick = () => {
+            heading.textContent = "ON DOUBLE CLICK"
+            rect.style.borderRadius = "50%"
+            isActiveDoubleClick = true;
+            
+        }
+        let isActiveDoubleClick = false;
+        let isRotating = false; // To track rotation state
+        let angle = 0; // Initial angle
+
+        const rotateDiv = () => {
+
+            if(isActiveDoubleClick){
+                if (isRotating) {
+                    heading.textContent = "ON MOUSE ENTER";
+                    angle += 5; // Increase the angle for rotation
+                    rect.style.transform = `rotate(${angle}deg)`;
+                    rect.style.backgroundColor = "#0080ff"
+                    requestAnimationFrame(rotateDiv); // Continue the animation
+                }
+                else{
+
+                    heading.textContent = "Hover over the box";
+
+                    rect.style.backgroundColor = "#fff"
+                }
+            }
+            
+        };
+
+        // Start rotating on mouse enter
+        rect.addEventListener("mouseenter", () => {
+            isRotating = true; // Start the rotation
+            rotateDiv(); // Trigger the rotation
+        });
+
+        // Stop rotating on mouse leave
+        rect.addEventListener("mouseleave", () => {
+            isRotating = false; 
+        });
+
+        button.addEventListener('click',onSingleClick)
+        button.addEventListener("dblclick", onDoubleClick);
+        // rect.addEventListener("mouseenter",onMouseEnter)
+    </script>
 </body>
 </html>
