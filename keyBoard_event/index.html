@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Event</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1 id="heading">KEYBOARD EVENT <sub>created by:- Harsh</sub></h1>
+    <div class="parent">
+        <div id="contacdiv">
+            <h1>KEYBOARD EVENT :- KEYDOWN</h1>
+            <input type="text" id="myInput" placeholder="Type Something...">
+            <div class="output">
+                <p class="keyPressed">Key Pressed:</p>
+                <p class="keycode">key Code:</p>
+                <p class="charCode">Char Code:</p>
+                <p class="evetType">Event Type:</p>
+            </div>
+        </div>
+    
+    
+        <div id="contacdiv">
+            <h1>KEYBOARD EVENT :- KEYUP</h1>
+            <input type="text" id="myInput2" placeholder="Type Something...">
+            <div class="output2">
+                <p class="keyPressed2">Key Pressed:</p>
+                <p class="keycode2">key Code:</p>
+                <p class="charCode2">Char Code:</p>
+                <p class="evetType2">Event Type:</p>
+            </div>
+        </div>
+    
+    
+        <div id="contacdiv">
+            <h1>KEYBOARD EVENT :- INPUT</h1>
+            <input type="text" id="myInput3" placeholder="Type Something..." name="userName">
+            <div class="output3">
+                <p class="keyPressed3">Input Value</p>
+                <p class="keycode3">Input Name:</p>
+                <p class="charCode3">Input Type:</p>
+                <p class="evetType3">Event Type:</p>
+            </div>
+        </div>
+    
+        <div id="contacdiv">
+            <h1>KEYBOARD EVENT :- CHANGE</h1>
+            <input type="text" id="myInput4" placeholder="Type Something..." name="userName">
+            <div class="output4">
+                <p class="keyPressed4">Input Value</p>
+                <p class="keycode4">Input Name:</p>
+                <p class="charCode4">Input Type:</p>
+                <p class="evetType4">Event Type:</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        let myInput = document.getElementById("myInput");
+        let keyPressed = document.querySelector(".keyPressed")
+        let keycode = document.querySelector(".keycode")
+        let charCode = document.querySelector(".charCode")
+        let evetType = document.querySelector(".evetType")
+
+        const handleKeyPress = (event)=>{
+            keyPressed.textContent = `Key Pressed: ${event.key}`;
+            keycode.textContent = `Key Code: ${event.code}`
+            charCode.textContent = `Char Code: ${event.key.charCodeAt(0)}`
+            evetType.textContent = `Event Type: ${event.type}`
+        }
+
+        myInput.addEventListener('keydown',(event)=>{
+            handleKeyPress(event)
+        })
+
+        let myInput2 = document.getElementById("myInput2");
+        let keyPressed2 = document.querySelector(".keyPressed2")
+        let keycode2 = document.querySelector(".keycode2")
+        let charCode2 = document.querySelector(".charCode2")
+        let evetType2 = document.querySelector(".evetType2")
+
+        const handleKeyRelise = (event)=>{
+            keyPressed2.textContent = `Key Pressed: ${event.key}`;
+            keycode2.textContent = `Key Code: ${event.code}`
+            charCode2.textContent = `Char Code: ${event.key.charCodeAt(0)}`
+            evetType2.textContent = `Event Type: ${event.type}`
+        }
+
+        myInput2.addEventListener('keyup',(event)=>{
+            handleKeyRelise(event)
+        })
+
+
+        let myInput3 = document.getElementById("myInput3");
+        let keyPressed3 = document.querySelector(".keyPressed3")
+        let keycode3 = document.querySelector(".keycode3")
+        let charCode3 = document.querySelector(".charCode3")
+        let evetType3 = document.querySelector(".evetType3")
+
+        const handleKeyInput = (event)=>{
+            keyPressed3.textContent = `Input Value: ${event.target.value}`;
+            keycode3.textContent = `Input Name: ${event.target.name}`
+            charCode3.textContent = `Input Type: ${event.inputType}`
+            evetType3.textContent = `Event Type: ${event.type}`
+        }
+
+        myInput3.addEventListener('input',(event)=>{
+            handleKeyInput(event)
+        })
+
+
+        let myInput4 = document.getElementById("myInput4");
+        let keyPressed4 = document.querySelector(".keyPressed4")
+        let keycode4 = document.querySelector(".keycode4")
+        let charCode4 = document.querySelector(".charCode4")
+        let evetType4 = document.querySelector(".evetType4")
+
+        const handleKeyChange = (event)=>{
+            keyPressed4.textContent = `Input Value: ${event.target.value}`;
+            keycode4.textContent = `Input Name: ${event.target.name}`
+            charCode4.textContent = `Input Type: ${event.inputType}`
+            evetType4.textContent = `Event Type: ${event.type}`
+        }
+
+        myInput4.addEventListener('change',(event)=>{
+            handleKeyChange(event)
+        })
+    </script>
+</body>
+</html>
