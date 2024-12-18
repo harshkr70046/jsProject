@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <section id="parent">
+        <div id="mybutton">
+            <button id="mybutton1">#3E5879</button>
+            <button id="mybutton2">#0A97B0</button>
+        </div>
+        <h2>copy your code 👇</h2>
+        <div class="copycode">
+            background-image:linear-gradient(to right, #3E5879,#0A97B0);
+        </div>
+    </section>
+    <footer style="color: bisque;">created by @Harsh</footer>
+    <script>
+        let mybtn1 = document.getElementById("mybutton1")
+        let mybtn2 = document.getElementById("mybutton2")
+        let copycode = document.querySelector(".copycode");
+        let color1 = "#3E5879";
+        let color2 = "#0A97B0";
+        const changeColor = ()=>{
+            let num = "0123456789abcdef"
+            let temp = "#";
+            for(let i=0;i<6;i++){
+                temp=temp+(num[Math.floor(Math.random()*16)]);
+            }
+            return temp;
+        }
+
+        const handleColorBtn1 = ()=>{
+            color1 = changeColor();
+            mybtn1.textContent = `${color1}`
+            mybutton1.style.backgroundColor = `${color1}`;
+            document.body.style.backgroundImage = `linear-gradient(to right, ${color1},${color2})`;
+            copycode.innerHTML = `background-image:linear-gradient(to right,${color1},${color2});`
+            
+        }
+
+        const handleColorBtn2 = ()=>{
+            color2 = changeColor();
+            mybtn2.textContent = `${color2}`
+            mybutton2.style.backgroundColor = `${color2}`;
+            document.body.style.backgroundImage = `linear-gradient(to right,${color1},${color2})`;
+            copycode.innerHTML = `background-image:linear-gradient(to right,${color1},${color2});`
+            
+        }
+
+        mybtn1.addEventListener('click',handleColorBtn1);
+        mybtn2.addEventListener('click',handleColorBtn2);
+
+        copycode.addEventListener('click', () =>{
+            navigator.clipboard.writeText(copycode.textContent);
+            alert("code copied")
+        })
+    </script>
+</body>
+</html>
