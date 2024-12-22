@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local Storage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="btn1">addDataToLocalStorage</button>
+    <button id="btn2">getDataFromLocalStorage</button>
+    <button id="btn3">removeDataFromLocalStorage</button>
+
+    <script>
+        const mydetail = {
+            name:"Harsh",
+            email:"Harsh@gmail.com",
+            age:20,
+            class:"Btech",
+            address:{
+                city:"bhagalpur",
+                state:"bihar",
+                pincode:853201
+            }
+        }
+        const btn1 = document.getElementById("btn1");
+        const btn2 = document.getElementById("btn2");
+        const btn3 = document.getElementById("btn3");
+
+        const addTodoList = ()=>{
+            localStorage.setItem("object",JSON.stringify(mydetail));
+            alert("data is added")
+        }
+        btn1.addEventListener('click',()=>{
+            addTodoList();
+        })
+        const addTodoList1 = ()=>{
+            const display = JSON.parse(localStorage.getItem("object"));
+            console.log("data is : ",display);
+            alert("data displayed")
+
+        }
+        btn2.addEventListener('click',()=>{
+            addTodoList1();
+        })
+        const removeData = () => {
+            localStorage.removeItem("object");
+            alert("Data is deleted parmanantly")
+        }
+        btn3.addEventListener('click',()=>{
+            removeData();
+        })
+    </script>
+
+</body>
+</html>
