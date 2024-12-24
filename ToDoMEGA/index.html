@@ -29,7 +29,7 @@
             return localStorage.setItem("data",JSON.stringify(storeData));
         }
 
-        let storeData = gettodoListData() || [];
+        let storeData = gettodoListData()==null?[]:gettodoListData();
 
         const addtodoDynamic = (currElem) => {
             const divElem = document.createElement('div');
@@ -70,12 +70,12 @@
             let tolistData = todoRemove.previousElementSibling.innerText;
             let parentElem = todoRemove.parentElement;
             storeData = storeData.filter((currTodo)=>{
-                return currTodo !== tolistData.toLowerCase();
+                return currTodo !== tolistData;
             })
 
             addUpdatedstorage(storeData)
             parentElem.remove();
-            console.log(storeData);
+            
         }
 
         todolist_data.addEventListener('click',(e)=>{
