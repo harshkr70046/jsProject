@@ -47,7 +47,6 @@
                 
                 storeData.push(todolistValue);
                 storeData = [...new Set(storeData)];
-                console.log(storeData);
 
                 localStorage.setItem("data",JSON.stringify(storeData));
                 addtodoDynamic(todolistValue);
