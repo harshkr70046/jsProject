@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Detector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="heading">Time Detector</h1>
+    <div class="mainDiv">
+        <div id="countDiv">
+            <p id="count">0</sub>
+        </div>
+        </p>
+        <div class="buttonDiv">
+            <button id="start">Start</button>
+            <button id="Reset">Reset</button>
+            <button id="stop">Stop</button>
+            <button id="gettime">GetTime</button>
+            <button id="cleartime">ClearTime</button>
+            <button id="mode">Light</button>
+        </div>
+        <h1 id="owner">Created By @Harsh</h1>
+    </div>
+    <div class="display">
+    </div>
+    <script>
+        const start = document.getElementById("start");
+        const count = document.getElementById("count");
+        const stop = document.getElementById("stop");
+        const Reset = document.getElementById("Reset");
+        const gettime = document.getElementById("gettime");
+        const display = document.querySelector(".display");
+        const cleartime = document.getElementById("cleartime");
+        const mode = document.getElementById("mode");
+        let stoptime = false;
+        
+        let number = 0;
+        
+        const handelStart = () => {
+            stoptime = false;
+            const intervalid = setInterval(()=>{
+                if(stoptime==true){
+                    clearInterval(intervalid);
+                }
+                count.textContent = `${number}`
+                number++;
+            },500)
+        }
+        const handelstop = ()=>{
+            stoptime = true;
+        }
+        const handelReset = ()=>{
+            stoptime = true;
+            number = 0;
+            count.textContent = `${number}`
+        }
+        
+        const handelgettime = ()=>{
+            let pElem = document.createElement('p');
+            pElem.classList = "datadisplay";
+            pElem.textContent = `The stop time is : ${number}`;
+            display.append(pElem);
+        }
+        const handelcleartime = () => {
+            display.innerHTML = "";
+        }
+        let odd = 1;
+        if(odd>10){
+            odd = 1;
+        }
+        const handelTheam = (modeData)=>{
+            if(odd%2==1){
+                document.body.style.backgroundColor = "white"
+                count.style.color = "red";
+                owner.style.color = "black";
+                heading.style.color = "black";
+                mode.textContent = "Dark";
+            }
+            if(odd%2==0){
+                document.body.style.backgroundColor = "black"
+                count.style.color = "#44f709";
+                owner.style.color = "deepskyblue";
+                heading.style.color = "deepskyblue";
+                mode.textContent = "Light";
+            }
+            odd++;
+        }
+        start.addEventListener('click',()=>{
+            handelStart();
+        })
+        stop.addEventListener('click',()=>{
+            handelstop();
+        })
+        Reset.addEventListener('click',()=>{
+            handelReset();
+        })
+        gettime.addEventListener('click',()=>{
+            handelgettime();
+        })
+        cleartime.addEventListener('click',()=>{
+            handelcleartime();
+        })
+        mode.addEventListener('click',() => {
+            handelTheam();
+        })
+    </script>
+</body>
+</html>
