@@ -23,6 +23,7 @@
 
         const handelEvent = (event)=>{
             if (event.target.tagName === 'LI') { // Ensure the target is an <li>
+
                 let toPrint = event.target.textContent;
                 printing.textContent = `My favorite language is ${toPrint}`;
             }

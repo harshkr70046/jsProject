@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Event Delegation - Preodic Table</h1>
+    <section class="mainBody">
+    </section>
+    <script>
+        const mainBody = document.querySelector(".mainBody");
+
+        const dataDisplay = ()=>{
+            for(let i=1;i<=50;i++){
+                const data = document.createElement("div");
+                
+                data.classList = "data"
+                data.textContent = `Atomic No:${i} Element:${i}`;
+    
+                mainBody.append(data);
+            }
+        }
+        dataDisplay();
+
+        const handelData = (event)=>{
+            const div = event.target;
+
+            if(event.target.tagName === "DIV"){
+                alert(div.textContent)
+            }
+        }
+        mainBody.addEventListener('click',handelData);
+
+    </script>
+</body>
+</html>
