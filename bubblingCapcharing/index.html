@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Which Programming language You like most ❤️?</h1>
+
+    <ul class="list_parent">
+        <li>🥂JavaScript🥂</li>
+        <li>😍React😍</li>
+        <li>✌️Next✌️</li>
+        <li>👇HTML👇</li>
+        <li>😊CSS😊</li>
+    </ul>
+    <p class="printing"></p>
+    <script>
+        const mainParent = document.querySelector(".list_parent");
+        const printing = document.querySelector(".printing");
+
+        const handelEvent = (event)=>{
+            if (event.target.tagName === 'LI') { // Ensure the target is an <li>
+                let toPrint = event.target.textContent;
+                printing.textContent = `My favorite language is ${toPrint}`;
+            }
+        }
+
+        mainParent.addEventListener('click',handelEvent);
+    </script>
+</body>
+</html>
